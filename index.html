@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Testing Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS for styling -->
+</head>
+<body>
+    <header>
+        <h1>Web Testing Dashboard</h1>
+    </header>
+    <main>
+        <section id="monitoring-display">
+            <h2>Real-Time Monitoring</h2>
+            <div id="monitoring-area">
+                <!-- Real-time monitoring content goes here -->
+            </div>
+        </section>
+        <section id="control-panel">
+            <h2>Control Panel</h2>
+            <button id="start-testing">Start Testing</button>
+            <button id="stop-testing">Stop Testing</button>
+        </section>
+        <section id="configuration-settings">
+            <h2>Configuration Settings</h2>
+            <form>
+                <label for="test-url">Test URL:</label>
+                <input type="url" id="test-url" name="test-url" required>
+                <label for="test-interval">Test Interval (seconds):</label>
+                <input type="number" id="test-interval" name="test-interval" min="1" required>
+                <button type="submit">Save Settings</button>
+            </form>
+        </section>
+        <section id="results-logging">
+            <h2>Results Logging</h2>
+            <div id="results-area">
+                <!-- Results logging content goes here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Web Testing Dashboard</p>
+    </footer>
+    <script src="script.js"></script> <!-- Link to JS for functionality -->
+</body>
+</html>
