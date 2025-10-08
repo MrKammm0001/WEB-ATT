@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Attack Testing Tool - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 Web Attack Testing Tool</h1>
+            <p class="subtitle">Professional Web Security Testing Dashboard</p>
+        </header>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>Total Requests</h3>
+                        <p class="stat-value" id="totalRequests">0</p>
+                    </div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h3>Successful</h3>
+                        <p class="stat-value" id="successfulRequests">0</p>
+                    </div>
+                </div>
+                <div class="stat-card error">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-content">
+                        <h3>Failed</h3>
+                        <p class="stat-value" id="failedRequests">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <h3>Requests/sec</h3>
+                        <p class="stat-value" id="requestRate">0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <h2>⚙️ Control Panel</h2>
+                <div class="control-grid">
+                    <div class="control-group">
+                        <label for="targetUrl">Target URL</label>
+                        <input type="text" id="targetUrl" placeholder="https://example.com" value="http://localhost:3000/target.html">
+                    </div>
+                    <div class="control-group">
+                        <label for="delay">Delay (seconds)</label>
+                        <input type="number" id="delay" min="0.1" step="0.1" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label for="threads">Threads</label>
+                        <input type="number" id="threads" min="1" max="10" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label for="maxRequests">Max Requests</label>
+                        <input type="number" id="maxRequests" min="1" value="100">
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button id="startBtn" class="btn btn-start">▶️ Start Attack</button>
+                    <button id="stopBtn" class="btn btn-stop" disabled>⏹️ Stop Attack</button>
+                    <button id="resetBtn" class="btn btn-reset">🔄 Reset Stats</button>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-label">Status:</span>
+                    <span class="status-text" id="statusText">Ready</span>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="metrics-panel">
+                <h2>📈 Performance Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Average Response Time:</span>
+                        <span class="metric-value" id="avgResponseTime">0 ms</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Fastest Response:</span>
+                        <span class="metric-value" id="fastestResponse">0 ms</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Slowest Response:</span>
+                        <span class="metric-value" id="slowestResponse">0 ms</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Success Rate:</span>
+                        <span class="metric-value" id="successRate">0%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Elapsed Time:</span>
+                        <span class="metric-value" id="elapsedTime">00:00:00</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Active Threads:</span>
+                        <span class="metric-value" id="activeThreads">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request History & Logs -->
+            <div class="logs-panel">
+                <div class="logs-header">
+                    <h2>📝 Request History</h2>
+                    <button id="clearLogsBtn" class="btn btn-clear">Clear Logs</button>
+                </div>
+                <div class="logs-container" id="logsContainer">
+                    <div class="log-entry info">
+                        <span class="log-time">[00:00:00]</span>
+                        <span class="log-message">System initialized. Ready to start testing.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Details -->
+            <div class="response-panel">
+                <h2>🔍 Latest Response Details</h2>
+                <div class="response-container">
+                    <div class="response-item">
+                        <span class="response-label">Status Code:</span>
+                        <span class="response-value" id="lastStatusCode">-</span>
+                    </div>
+                    <div class="response-item">
+                        <span class="response-label">Response Time:</span>
+                        <span class="response-value" id="lastResponseTime">-</span>
+                    </div>
+                    <div class="response-item">
+                        <span class="response-label">Content Length:</span>
+                        <span class="response-value" id="lastContentLength">-</span>
+                    </div>
+                    <div class="response-item">
+                        <span class="response-label">Timestamp:</span>
+                        <span class="response-value" id="lastTimestamp">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>⚠️ Warning: This tool is for educational and authorized testing purposes only. Unauthorized use is illegal.</p>
+            <p>© 2024 Web Attack Testing Tool - Use Responsibly</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

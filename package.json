@@ -1,0 +1,22 @@
+{
+  "name": "web-attack-testing-tool",
+  "version": "1.0.0",
+  "description": "Comprehensive web testing application with dashboard for monitoring and controlling web request testing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web-testing",
+    "security-testing",
+    "http-testing",
+    "dashboard",
+    "monitoring"
+  ],
+  "author": "MrKammm0001",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
